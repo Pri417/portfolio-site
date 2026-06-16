@@ -21,6 +21,11 @@ function EditableText({ storeKey, defaultHtml = '', tag = 'div', placeholder, st
     let val = raw != null ? raw : defaultHtml;
     const stripped = val.replace(/^[\u201c\u201d"']([\s\S]*?)[\u201c\u201d"']$/, '$1').trim();
     if (stripped !== val) { val = stripped; localStorage.setItem('about:' + storeKey, val); }
+    // Self-heal a known corruption: over repeated edit round-trips an attribute's
+    // quotes could get backslash-escaped again and again, producing values like
+    // style=\\\\\\"color:…\\\\\\" that browsers can't parse — so the styled words
+    // render broken/uncolored. Detect that signature and restore the clean default.
+    if (/\\/.test(val)) { val = defaultHtml; localStorage.setItem('about:' + storeKey, val); }
     el.innerHTML = val;
   }, [storeKey, edit]);
   if (!edit) {
