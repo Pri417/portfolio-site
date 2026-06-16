@@ -185,12 +185,15 @@ a { color: inherit; }
 }
 
 /* ─── editable-text placeholders ─────────────────────────────────── */
-[contenteditable][data-placeholder]:empty::before {
+[contenteditable="true"][data-placeholder]:empty::before {
   content: attr(data-placeholder);
   color: var(--ink-muted);
   font-style: italic;
   pointer-events: none;
 }
+/* On the published (read-only) site, empty editable fields collapse entirely
+   so neither placeholder prompts ("Add a title…") nor empty gaps reach visitors. */
+.cs-editable:not(.is-editing):empty { display: none; }
 [contenteditable]:focus {
   outline: 2px dashed var(--orange);
   outline-offset: 4px;

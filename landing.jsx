@@ -1284,7 +1284,10 @@ function Footer() {
       background: C.burgundy,
       color: '#fff',
       marginTop: 80,
-      position: 'relative'
+      position: 'relative',
+      width: '100vw',
+      marginLeft: 'calc(50% - 50vw)',
+      boxSizing: 'border-box'
     }}>
       <div style={{
         textAlign: 'center', maxWidth: 720, margin: '0 auto'
