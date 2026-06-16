@@ -31,6 +31,7 @@ html, body {
   font-size: 16px;
   min-height: 100%;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 * { box-sizing: border-box; }
@@ -858,6 +859,10 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
 }
 @media (max-width: 720px) {
   .cs-wrap { padding: 0 24px; }
+  .cs-meta-val { white-space: normal !important; overflow-wrap: anywhere; }
+  .cs-feature-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .reveal[data-reveal-pending].from-left,
+  .reveal[data-reveal-pending].from-right { transform: translateY(36px) !important; }
   .cs-hero { min-height: 560px; }
   .cs-nav > div { padding: 14px 24px !important; }
   .cs-nav nav { gap: 0 !important; }
@@ -897,10 +902,12 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
     border-radius: 100px 100px 12px 12px !important; }
   .about-facts-section { padding: 32px 20px 16px !important; }
   .about-facts-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 20px 16px !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
     justify-content: stretch !important;
   }
+  .about-facts-grid > * { min-width: 0 !important; }
+  .about-facts-grid * { overflow-wrap: anywhere !important; white-space: normal !important; }
   .about-resume-section { padding: 36px 20px 48px !important; }
   .about-exp-row {
     grid-template-columns: 1fr !important;

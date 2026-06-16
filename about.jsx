@@ -218,7 +218,7 @@ function AboutPage() {
           {/* Left: intro + bio */}
           <div className="reveal from-left">
             <EditableText storeKey="hero-script" tag="div" placeholder="intro line"
-            defaultHtml="Heyy, I&rsquo;m Pri!"
+            defaultHtml="Heyy!"
             className="type-script hero-script"
             style={{ fontSize: 46, color: C.pink, transform: 'rotate(-2deg)', display: 'inline-block', marginBottom: 6 }} />
             <EditableText storeKey="bio" tag="div"

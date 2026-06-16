@@ -217,7 +217,7 @@ function CSMeta({ meta, update }) {
               letterSpacing: '0.22em', textTransform: 'uppercase',
               color: 'var(--pink)', marginBottom: 10, whiteSpace: 'nowrap'
             }} />
-              <Editable tag="div" value={it.value}
+              <Editable tag="div" value={it.value} className="cs-meta-val"
             onCommit={(v) => update(meta.map((m, j) => j === i ? { ...m, value: v } : m))}
             placeholder="Value"
             style={{
@@ -2173,7 +2173,7 @@ function CSFeatureShowcase({ s, ops }) {
         }} />
 
         {/* top row — app screens */}
-        <div style={{
+        <div className="cs-feature-grid" style={{
           display: 'grid', gridTemplateColumns: `repeat(${Math.min(apps.length || 1, 3)}, 1fr)`,
           gap: 'clamp(24px, 3vw, 48px)', marginBottom: 'clamp(48px, 6vw, 96px)'
         }}>
@@ -2208,7 +2208,7 @@ function CSFeatureShowcase({ s, ops }) {
         }
 
         {/* bottom row — hardware */}
-        <div style={{
+        <div className="cs-feature-grid" style={{
           display: 'grid', gridTemplateColumns: `repeat(${Math.min(hw.length || 1, 3)}, 1fr)`,
           gap: 'clamp(28px, 3.5vw, 56px)'
         }}>
