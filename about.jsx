@@ -17,6 +17,14 @@ function EditableText({ storeKey, defaultHtml = '', tag = 'div', placeholder, st
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (!edit) {
+      // Published / read-only site: always render the deployed default so the
+      // live page reflects the committed files — never stale browser
+      // localStorage from a prior visit (which only exists in one person's
+      // browser anyway and must not override what was shipped).
+      el.innerHTML = defaultHtml;
+      return;
+    }
     const raw = localStorage.getItem('about:' + storeKey);
     let val = raw != null ? raw : defaultHtml;
     const stripped = val.replace(/^[\u201c\u201d"']([\s\S]*?)[\u201c\u201d"']$/, '$1').trim();
