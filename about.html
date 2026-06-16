@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>About — Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* Hero script intro: force the whole line (incl. any pasted text that carries
+   its own inline font/background) to the script font with no background box. */
+.hero-script, .hero-script * {
+  font-family: var(--font-script) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+/* Strip any white highlight pasted into editable text anywhere on the page. */
+.cs-editable [style*="background"] { background: transparent !important; }
+/* Bio: always render in the body font (Plus Jakarta Sans), even if text was
+   pasted in carrying its own font; keeps bold/colour accents intact. */
+.cs-it-grid [data-placeholder="Write a little about yourself…"],
+.cs-it-grid [data-placeholder="Write a little about yourself…"] * {
+  font-family: var(--font-ui) !important;
+}
+/* Bulletin-board polaroids: sit at a tilt, straighten + lift on hover. */
+.board-pola {
+  transform: rotate(var(--rot));
+  transition: transform .4s cubic-bezier(.5,1.5,.4,1), box-shadow .3s;
+  will-change: transform;
+}
+.board-pola:hover {
+  transform: rotate(0deg) translateY(-12px) scale(1.045) !important;
+  box-shadow: 0 30px 52px rgba(40,28,16,0.40), 0 8px 14px rgba(40,28,16,0.22) !important;
+  z-index: 20;
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="image-slot.js"></script>
+<script src="cs-sidecar.js?v=5"></script>
+<script type="text/babel" src="scrapbook-shared.jsx?v=5"></script>
+<script type="text/babel" src="landing.jsx?v=5"></script>
+<script type="text/babel" src="about.jsx"></script>
+
+<script type="text/babel">
+csMount('about', () =>
+  ReactDOM.createRoot(document.getElementById('root')).render(<><CustomCursor defaultStar /><AboutPage /></>));
+</script>
+</body>
+</html>

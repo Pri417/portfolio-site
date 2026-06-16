@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AtlasOne — case study · Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="image-slot.js"></script>
+<script src="cs-sidecar.js?v=5"></script>
+<script>
+// Patch problem + approach sections to ensure fit:contain (natural mode)
+(function(){
+  try {
+    var key = 'cs:atlasone:sections';
+    var sections = JSON.parse(localStorage.getItem(key));
+    if (!sections) return;
+    var changed = false;
+    sections = sections.map(function(s) {
+      if (s.id === 'problem' && !s.ar) {
+        changed = true;
+        return Object.assign({}, s, { ar: 0.6625310173697271 });
+      }
+      if (s.id === 'approach' && !s.ar) {
+        changed = true;
+        return Object.assign({}, s, { ar: 0.44991364421416236, img2Ar: 0.6101694915254238, pair: true, pairH: 500 });
+      }
+      if (s.id === 'workflow-1') {
+        changed = true;
+        return Object.assign({}, s, { noBg: true });
+      }
+      if (s.id === 'workflow-2') {
+        changed = true;
+        return Object.assign({}, s, { maxW: 880, noBg: true });
+      }
+      if (s.id === 'workflow-3') {
+        changed = true;
+        return Object.assign({}, s, { maxW: 700 });
+      }
+      return s;
+    });
+    if (changed) localStorage.setItem(key, JSON.stringify(sections));
+  } catch(e){}
+})();
+
+// Patch next to point to Halloween Academy
+(function(){
+  try {
+    var key = 'cs:atlasone:next';
+    var next = JSON.parse(localStorage.getItem(key));
+    next = Object.assign({}, next || {}, { label: 'Next Project', title: 'Halloween Academy', href: 'halloween-academy.html', img: '' });
+    localStorage.setItem(key, JSON.stringify(next));
+  } catch(e){}
+})();
+(function(){
+  try {
+    var key = 'cs:atlasone:meta';
+    var meta = JSON.parse(localStorage.getItem(key));
+    if (!meta) return;
+    var hasPartners = meta.some(function(m){ return m.label === 'Partners'; });
+    if (!hasPartners) {
+      meta.push({ label: 'Partners', value: 'Add partners here' });
+      localStorage.setItem(key, JSON.stringify(meta));
+    }
+  } catch(e){}
+})();
+</script>
+<!-- cross-device state is restored before mount via csMount() below -->
+<script type="text/babel" src="scrapbook-shared.jsx?v=5"></script>
+<script type="text/babel" src="landing.jsx?v=5"></script>
+<script type="text/babel" src="cs-builder.jsx?v=6"></script>
+<script type="text/babel" src="cs-history.jsx?v=5"></script>
+<script type="text/babel" src="case-study-blocks.jsx?v=10"></script>
+<script type="text/babel" src="case-study.jsx?v=7"></script>
+
+<script type="text/babel">
+// ─── DEFAULT CONTENT ──────────────────────────────────────────────────
+// This is the template's starting point. Everything below is editable in
+// the page itself (toggle Edit ↔ Preview, bottom-centre). Edits, dropped
+// images, and added/removed sections persist in the browser per pageKey.
+//
+// To spin up a NEW project page: copy this file, change `pageKey` to a new
+// unique slug, and edit the defaults (or just edit live in the browser).
+// Keep every section `id` unique within this file.
+
+const defaults = {
+  "hero": {
+    "eyebrow": "2025 — 26 · Globus Medical × Nevro",
+    "title": "AtlasOne.",
+    "sub": "a company integration",
+    "description": "Training experiences and resources built to support the integration of Nevro’s Salesforce platform with Globus Medical’s AtlasOne system — simplifying new workflows and helping employees quickly adapt to the unified platform."
+  },
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Globus Medical + Nevro"
+    },
+    {
+      "label": "Role",
+      "value": "Experience designer · training"
+    },
+    {
+      "label": "Year",
+      "value": "2025 — 26"
+    },
+    {
+      "label": "Scope",
+      "value": "Salesforce → AtlasOne integration"
+    },
+    {
+      "label": "Partners",
+      "value": "Add partners here"
+    }
+  ],
+  "sections": [
+    {
+      "id": "locked",
+      "type": "gate",
+      "eyebrow": "Confidential",
+      "heading": "This project is protected.",
+      "body": "Due to proprietary company information, the full case study lives behind a password. Enter it to view the high-level overview of the work and my role — or reach out and I’m happy to share access.",
+      "password": "opensesame",
+      "hint": "<br>",
+      "button": "Unlock case study"
+    },
+    {
+      "id": "overview",
+      "type": "intro",
+      "eyebrow": "Overview",
+      "heading": "Where did we start?",
+      "body": "Acquiring a company is huge, and when we got the news, we definitely spiraled a little—then jumped into action. In the first month, we tackled back-to-back meetings and brainstorming sessions, mapping out a seamless workflow to integrate Nevro’s Salesforce app with Globus Medical’s AtlasOne platform.<div><div><span style=\"color: var(--ink-soft); font-family: var(--font-ui);\" data-cc-id=\"cc-2\"><strong>Our mission</strong>: Make it effortless for Sales Reps to place orders, request loaner equipment, and track inventory—smoothly and efficiently.</span></div><div><br></div></div>",
+      "pullquote": ""
+    },
+    {
+      "id": "workflow-1",
+      "type": "fullImage",
+      "ar": 3.3636363636363638,
+      "img": "images/atlasone-flow-1.png",
+      "caption": "Mapping the end-to-end workflow across Salesforce and AtlasOne."
+    },
+    {
+      "id": "workflow-2",
+      "type": "fullImage",
+      "ar": 2.5315985130111525,
+      "img": "images/atlasone-flow-2.png",
+      "caption": "The streamlined permanent-implant path on the unified platform."
+    },
+    {
+      "id": "workflow-3",
+      "type": "fullImage",
+      "ar": 1.0733197556008147,
+      "img": "images/atlasone-flow-3.png",
+      "caption": "The warranty replacement flow, mapped end to end.",
+      "maxW": 620
+    },
+    {
+      "id": "problem",
+      "type": "imageText",
+      "side": "left",
+      "rotate": -1.5,
+      "eyebrow": "<br>",
+      "heading": "Internal Technical Requirement Spec",
+      "body": "We identified critical UI pivot points- introducing new fields for Trial, Perm,&nbsp;<span style=\"color: var(--ink-soft); font-family: var(--font-ui); text-wrap-mode: initial;\">Revision procedures- to ensure transactional integrity.&nbsp;</span>",
+      "ar": 0.6625310173697271,
+      "maxW": 380
+    },
+    {
+      "id": "approach",
+      "type": "imageText",
+      "side": "right",
+      "rotate": 1.2,
+      "eyebrow": "The approach",
+      "heading": "From there, the focus shifted into Training.",
+      "body": "As the Primary E-Learning Designer, I led the creation of the end-to-end workflow, designing a scalable learning experience that aligned business processes with learner needs. The modules opened with merger context and key term definitions before guiding users through a seamless transition from the Salesforce app into AtlasOne, directly reflecting the original user flow.",
+      "ar": 0.44991364421416236,
+      "img2slot": true,
+      "img2Ar": 0.6101694915254238,
+      "pair": true,
+      "pairH": 500
+    },
+    {
+      "id": "outcome-1",
+      "type": "outcome",
+      "heading": "The Outcome",
+      "items": [
+        {
+          "value": "1,500+",
+          "label": "Global Sales Adoption:",
+          "body": "Seamlessly integrated across the international sales force."
+        },
+        {
+          "value": "8+",
+          "label": "Cross-Functional Synergy:",
+          "body": "Unified leadership across IT, Sales, Training, and Finance."
+        },
+        {
+          "value": "50%",
+          "label": "Operational Efficiency:",
+          "body": "Eliminated redundant workflows and manual data entry."
+        }
+      ]
+    },
+    {
+      "id": "gallery-1",
+      "type": "fullImage",
+      "ar": 0.8166666666666667,
+      "maxW": 480,
+      "caption": "I even received special recognition from the CFO for my dedication to supporting the company’s mission as the sole e-learning designer, consistently going above and beyond to serve our customers."
+    }
+  ],
+  "next": {
+    "label": "Next Project",
+    "title": "Halloween Academy",
+    "href": "halloween-academy.html",
+    "img": ""
+  }
+};
+
+csMount('atlasone', () =>
+  ReactDOM.createRoot(document.getElementById('root'))
+    .render(<><CustomCursor defaultStar /><CaseStudy pageKey="atlasone" defaults={defaults} /></>));
+</script>
+</body>
+</html>

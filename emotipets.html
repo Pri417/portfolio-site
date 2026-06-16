@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>EMOTIpets — case study · Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="image-slot.js"></script>
+<script src="cs-sidecar.js?v=5"></script>
+<script type="text/babel" src="scrapbook-shared.jsx?v=5"></script>
+<script type="text/babel" src="landing.jsx?v=5"></script>
+<script type="text/babel" src="cs-builder.jsx?v=6"></script>
+<script type="text/babel" src="cs-history.jsx?v=5"></script>
+<script type="text/babel" src="case-study-blocks.jsx?v=10"></script>
+<script type="text/babel" src="case-study.jsx?v=7"></script>
+
+<script type="text/babel">
+const defaults = {
+  "hero": {
+    "eyebrow": "Graphic · Packaging · Prototyping",
+    "title": "EMOTIpets.",
+    "sub": "feelings, made tangible",
+    "description": "A children's brand built around emotional literacy — plush characters, packaging, and play that give kids a vocabulary for how they feel."
+  },
+  "meta": [
+    { "label": "Time",       "value": "8 weeks" },
+    { "label": "Categories", "value": "Illustration · Packaging · Prototyping" },
+    { "label": "Role",       "value": "Brand Identity, Character Design, Packaging" },
+    { "label": "Tools",      "value": "Illustrator · Photoshop · Figma" }
+  ],
+  "sections": [
+    {
+      "id": "overview",
+      "type": "intro",
+      "eyebrow": "",
+      "heading": "Overview",
+      "body": "Inspired by my passion for design, EMOTIpets is a children's brand centered on emotional intelligence — drawing from my experience as an older sister, observing and entertaining younger siblings, and understanding how kids communicate feelings.\n\nFrom visiting toy departments to designing concept packaging, my goal was to bring EMOTIpets to life on shelves — creating awareness of emotional connection for children supported by thoughtful, joyful storytelling.",
+      "pullquote": ""
+    },
+    {
+      "id": "branding-intro",
+      "type": "intro",
+      "eyebrow": "Branding Elements",
+      "heading": "Mood Board",
+      "body": "Drawing from existing children's IP that nails emotional resonance — soft forms, saturated palettes, expressive faces, and tactile appeal.",
+      "pullquote": ""
+    },
+    {
+      "id": "moodboard",
+      "type": "pinboard",
+      "eyebrow": "Mood Board",
+      "heading": "",
+      "count": 6,
+      "caps": [
+        "Squishmallows",
+        "House Plate",
+        "Toy Story",
+        "Tiny Tikes",
+        "Inside Out",
+        "Chaddo"
+      ]
+    },
+    {
+      "id": "logo-intro",
+      "type": "intro",
+      "eyebrow": "Brand Identity",
+      "heading": "Logo Exploration",
+      "body": "Exploring type treatments, colour combinations, and lockups that balance playfulness with legibility across product and packaging contexts.",
+      "pullquote": ""
+    },
+    {
+      "id": "logos",
+      "type": "gallery",
+      "count": 6
+    },
+    {
+      "id": "form-intro",
+      "type": "intro",
+      "eyebrow": "Character Design",
+      "heading": "Form Development",
+      "body": "Building out the character family — iterating on silhouette, proportion, and expression to make each EMOTIpet instantly readable as a distinct emotional archetype.",
+      "pullquote": ""
+    },
+    {
+      "id": "form-dev",
+      "type": "pinboard",
+      "eyebrow": "Form Development",
+      "heading": "",
+      "count": 8,
+      "caps": []
+    },
+    {
+      "id": "final-characters",
+      "type": "gallery",
+      "count": 4
+    },
+    {
+      "id": "packaging-intro",
+      "type": "intro",
+      "eyebrow": "Packaging",
+      "heading": "Bringing it to shelves.",
+      "body": "Structural and graphic packaging design that communicates the emotional theme of each character at a glance — from hangtag to box.",
+      "pullquote": ""
+    },
+    {
+      "id": "packaging",
+      "type": "fullImage",
+      "caption": "Final packaging concepts.",
+      "height": 560
+    },
+    {
+      "id": "takeaway",
+      "type": "quote",
+      "text": "Giving kids a soft, squeezable way to name what they feel — that's the whole brief.",
+      "author": "Design intent",
+      "role": "EMOTIpets"
+    }
+  ],
+  "next": {
+    "label": "Next Project",
+    "title": "Tempo",
+    "href": "Tempo.html"
+  }
+};
+
+csMount('emotipets', () =>
+  ReactDOM.createRoot(document.getElementById('root'))
+    .render(<><CustomCursor defaultStar /><CaseStudy pageKey="emotipets" defaults={defaults} /></>));
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Resume — Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* site.css makes <body> a flex row that centers a single child, so the whole
+     page lives inside one full-width wrapper. To update the resume: drop a new
+     PDF and I'll refresh the inline image + the linked Pri-Jain-Resume.pdf. */
+  .rz-page { width: 100%; }
+  .rz-wrap { max-width: 820px; margin: 0 auto; padding: 6px 24px 80px; }
+  .rz-head { text-align: center; margin: 4px 0 26px; }
+  .rz-title {
+    margin: 0; font-family: var(--font-headline);
+    font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 600;
+    font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -0.02em;
+    color: var(--orange);
+  }
+  .rz-sub {
+    font-family: var(--font-script); font-weight: 700;
+    font-size: clamp(22px, 2.4vw, 30px); color: var(--ink-soft); margin-top: 6px;
+  }
+  .rz-frame {
+    position: relative; width: 100%;
+    margin: 0 auto; background: #fff;
+    border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(46,37,34,0.14), 0 6px 14px rgba(46,37,34,0.06);
+  }
+  .rz-frame a { display: block; }
+  .rz-frame img { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+  <div class="rz-page">
+    <div id="rz-nav"></div>
+
+    <div class="rz-wrap">
+      <div class="rz-head">
+        <h1 class="rz-title">Resume</h1>
+        <div class="rz-sub">Proof that alot can happen in one page</div>
+      </div>
+
+      <div class="rz-frame">
+        <a href="Pri-Jain-Resume.pdf" target="_blank" rel="noopener noreferrer" title="Open the full PDF">
+          <img src="resume-page.jpg" alt="Priyanka Jain — Resume" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="scrapbook-shared.jsx"></script>
+  <script type="text/babel" src="landing.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('rz-nav'))
+      .render(<window.SiteNav active="resume" />);
+  </script>
+</body>
+</html>

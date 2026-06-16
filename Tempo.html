@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tempo — case study · Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="image-slot.js"></script>
+<script src="cs-sidecar.js?v=5"></script>
+<!-- cross-device state is restored before mount via csMount() below -->
+<script type="text/babel" src="scrapbook-shared.jsx?v=5"></script>
+<script type="text/babel" src="landing.jsx?v=5"></script>
+<script type="text/babel" src="cs-builder.jsx?v=6"></script>
+<script type="text/babel" src="cs-history.jsx?v=5"></script>
+<script type="text/babel" src="case-study-blocks.jsx?v=10"></script>
+<script type="text/babel" src="case-study.jsx?v=7"></script>
+
+<script type="text/babel">
+// ─── DEFAULT CONTENT ──────────────────────────────────────────────────
+// Recovered Tempo case-study content. Everything below is editable in the
+// page itself (toggle Edit ↔ Preview). Edits, dropped images, and added/
+// removed sections persist per pageKey and sync via cs-state-tempo.json.
+
+const defaults = {
+  "hero": {
+    "eyebrow": "2023 · concept project",
+    "title": "Tempo.",
+    "sub": "rethinking the restaurant rush",
+    "description": "An AI-driven ordering and task system designed for high-volume restaurants — built to absorb the chaos of the dinner rush and give servers their attention back."
+  },
+  "meta": [
+    {
+      "label": "Capstone Project",
+      "value": "Future of Resturaunts with AI"
+    },
+    {
+      "label": "Role",
+      "value": "User Research, (Preliminary UI), 3-D Modeling"
+    },
+    {
+      "label": "Year",
+      "value": "2024"
+    },
+    {
+      "label": "Tools",
+      "value": "Figma · Fusion360· Keyshot· Adobe Suite"
+    },
+    {
+      "label": "Partners",
+      "value": "Hope Rackers, Lily Liang, Kareen Young"
+    }
+  ],
+  "sections": [
+    {
+      "id": "overview",
+      "type": "intro",
+      "eyebrow": "<br>",
+      "heading": "Overview",
+      "body": "Tempo is an innovative and comprehensive restaurant system that integrates <strong style=\"color:var(--orange)\">AI-powered ordering</strong>, <strong style=\"color:var(--burgundy)\">payment capabilities</strong>, and a <strong style=\"color:var(--pink)\">task notification/management</strong> to enhance the flow and efficiency at <strong style=\"color:var(--burgundy)\">high-end restaurants.</strong>\n\nImagining the Future of Restaurants\n\nWith the recent advancements in <strong style=\"color:var(--orange)\">AI, robotics, and emerging tech</strong>, the hospitality industry has a <strong style=\"color:var(--orange)\">golden opportunity</strong> to reinvent the restaurant experience for customers and staff. Envisioning the <strong style=\"color:var(--burgundy)\">restaurant of the future, 5–10 years out</strong>, my team and I targeted high-end restaurants to improve the flow of <strong style=\"color:var(--pink)\">premium service</strong> and enhance NRC Voyix's product offerings.",
+      "pullquote": "<br>"
+    },
+    {
+      "id": "video-1",
+      "type": "video",
+      "url": "uploads/Tempo (1).mp4",
+      "caption": "Tempo",
+      "maxW": 680
+    },
+    {
+      "id": "research-head",
+      "type": "intro",
+      "eyebrow": "Secondary Research",
+      "heading": "What is high-end dining?",
+      "body": "High-End dining is the combination of luxurious food and exceptional service, including:<br>1. Small Margin of Error<br>2. Complex Steps of Service<br>3. High Expectations",
+      "pullquote": ""
+    },
+    {
+      "id": "flow",
+      "type": "fullImage",
+      "caption": "Following over 30 hours of on-site interviews and visits, along with analyzing 75+ consumer survey responses, my team and I identified 45 key insights, ultimately narrowing them down to three main findings.",
+      "height": 560
+    },
+    {
+      "id": "insights",
+      "type": "insightCards",
+      "eyebrow": "Primary Research",
+      "heading": "Key Insights",
+      "cards": [
+        {
+          "eyebrow": "Insight 1",
+          "title": "Broken Sequence of Events",
+          "body": "Less than 28% are willing to wait more than 28 minutes. Everyone has to work as fast as possible to avoid miscommunications — Sophia, server from Rezdora.",
+          "extension": "As a result of the intricate nature of services in a high-end restaurant, a single individual's inability to complete their assigned tasks or communicate effectively can potentially disrupt the sequence, leading to an extended wait time for the guests."
+        },
+        {
+          "eyebrow": "Insight 2",
+          "title": "Neglected Tables",
+          "body": "It can be inevitable for servers to make mistakes due to the amount of tables they handle. \"I've been here for 2 years.. I'm at your table long before the time limit for the table greetings.\" — Max, Server from STK.",
+          "extension": "Due to unintentional neglect like understaffing as a way to maintain profit margins, a complex sequence of service, overlapping roles, or intentional neglect like staff biases towards regulars, some tables may experience sub-optimal service."
+        },
+        {
+          "eyebrow": "Insight 3",
+          "title": "Expectation of Perfection",
+          "body": "Expectations of the Staff:<br>1. Taste and know everything on the menu<br>2. Recommend food and drinks<br>3. Timely Service<br><em>Server at Hilton Seelbach</em>",
+          "extension": "Fine dining establishments heavily depend on reviews and reputation to attract customers. A single negative review has the potential to tarnish the restaurant's image significantly."
+        }
+      ]
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "Across every service we studied, the breakdowns were never about the food — they were about timing and attention.",
+      "author": "Research synthesis",
+      "role": "5 kitchens · 1 month"
+    },
+    {
+      "id": "insight",
+      "type": "imageText",
+      "side": "left",
+      "rotate": -1.5,
+      "eyebrow": "<br>",
+      "heading": "Project Objective",
+      "body": "To use AI analysis to improve the flow and consistency <span style=\"color: var(--ink-soft); font-family: var(--font-ui); text-wrap-mode: initial;\">of premium service at high-end restaurants.</span>"
+    },
+    {
+      "id": "concept-cards",
+      "type": "conceptCards",
+      "eyebrow": "Insights",
+      "heading": "",
+      "cards": [
+        {
+          "eyebrow": "Concept 1",
+          "title": "Eliminating the POS Terminal",
+          "body": "This concept takes the appearance of a conventional notepad, while incorporating voice recognition for ordering, a POS (Point of Sale) ordering system, a stylus for server modifications, and various payment options.",
+          "pdf": "",
+          "btn": "View PDF"
+        },
+        {
+          "eyebrow": "Concept 2",
+          "title": "Enhancing Task Communication",
+          "body": "This concept is designed to enhance intra-staff communication by utilizing AI for sending reminders and task assignments.",
+          "pdf": "",
+          "btn": "View PDF"
+        },
+        {
+          "eyebrow": "Concept 3",
+          "title": "Personalized E-ink Menu",
+          "body": "This concept allows users to make reservations through OpenTable, input their preferences into our database, and receive tailored suggestions on an E-Ink menu. Additionally, users have the option to provide feedback and rate the food for ongoing enhancements.",
+          "pdf": "",
+          "btn": "View PDF"
+        }
+      ]
+    },
+    {
+      "id": "objective",
+      "type": "imageText",
+      "side": "right",
+      "rotate": 1.2,
+      "eyebrow": "Ideation",
+      "heading": "Brainstorming",
+      "body": "Targeting high-end dining a decade from now: improve the flow of premium service and extend NRC Voyix's product offering."
+    },
+    {
+      "id": "priorities",
+      "type": "priorities",
+      "eyebrow": "Project Objective",
+      "heading": "Design the restaurant of 5–10 years out.",
+      "body": "Targeting high-end dining a decade from now: improve the flow of premium service and extend NRC Voyix's product offering.",
+      "groups": [
+        {
+          "tier": "Must Have",
+          "items": [
+            {
+              "icon": "ai",
+              "label": "Incorporate AI to improve flow"
+            },
+            {
+              "icon": "flow",
+              "label": "Improve service consistency"
+            },
+            {
+              "icon": "mind",
+              "label": "Reduce server mental workload"
+            }
+          ]
+        },
+        {
+          "tier": "Should Have",
+          "items": [
+            {
+              "icon": "guest",
+              "label": "Personalized guest experience"
+            },
+            {
+              "icon": "chart",
+              "label": "Increase labor profit margin"
+            }
+          ]
+        },
+        {
+          "tier": "Nice to Have",
+          "items": [
+            {
+              "icon": "star",
+              "label": "Minimize bad reviews"
+            },
+            {
+              "icon": "gauge",
+              "label": "Ease in gauging customer satisfaction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feature-showcase",
+      "type": "featureShowcase",
+      "heading": "Tempo’s Features",
+      "apps": [
+        {
+          "label": "AI-Powered Order Processing"
+        },
+        {
+          "label": "Easy Smart Check Splitting"
+        },
+        {
+          "label": "Systematic Task Management"
+        }
+      ],
+      "hw": [
+        {
+          "name": "TempoScribe",
+          "body": "A handheld POS system with AI speech-to-text for automatic order recording and quick edits."
+        },
+        {
+          "name": "TempoTap",
+          "body": "A sleek payment system that allows the table to pay at their own pace."
+        },
+        {
+          "name": "TempoChime",
+          "body": "Wearable task manager for efficient staff task distribution and coordination."
+        }
+      ]
+    },
+    {
+      "id": "features-head",
+      "type": "intro",
+      "eyebrow": "The System",
+      "heading": "Tempo’s features.",
+      "body": "Integrated ordering, payment, and a calm task layer — one next action at a time.",
+      "pullquote": ""
+    },
+    {
+      "id": "what-does",
+      "type": "imageText",
+      "side": "left",
+      "rotate": -1.2,
+      "eyebrow": "In Use",
+      "heading": "What Tempo does for the floor.",
+      "body": "Absorbs the busywork so staff stay present with guests — ordering, payment, and the next-best task surfaced right when it matters."
+    },
+    {
+      "id": "tech",
+      "type": "fullImage",
+      "caption": "Tempo, mid-service.",
+      "height": 560
+    },
+    {
+      "id": "onboarding",
+      "type": "imageText",
+      "side": "right",
+      "rotate": 1.2,
+      "eyebrow": "Onboarding",
+      "heading": "Up and running in minutes.",
+      "body": "Role-aware setup gets every station productive fast — no feature tour, just the workflows of the actual shift."
+    },
+    {
+      "id": "payment",
+      "type": "imageText",
+      "side": "left",
+      "rotate": -1.5,
+      "eyebrow": "Payment",
+      "heading": "Payment, with or without AI.",
+      "body": "Guests settle the check on their own terms; the system keeps the table turning either way."
+    },
+    {
+      "id": "value",
+      "type": "metrics",
+      "eyebrow": "Product Value",
+      "heading": "Why Tempo earns its place at the table.",
+      "note": "concept projections.",
+      "items": [
+        {
+          "value": "1",
+          "label": "unified ordering, payment & task surface"
+        },
+        {
+          "value": "5–10 yr",
+          "label": "horizon the concept was designed for"
+        },
+        {
+          "value": "2",
+          "label": "screens at most, per role"
+        }
+      ]
+    },
+    {
+      "id": "future",
+      "type": "fullImage",
+      "caption": "Where Tempo goes next.",
+      "height": 520
+    },
+    {
+      "id": "takeaways",
+      "type": "quote",
+      "text": "Tempo reframes the restaurant of the near future around flow — technology that recedes so hospitality can lead.",
+      "author": "Key takeaway",
+      "role": ""
+    }
+  ],
+  "next": {
+    "label": "Next Project",
+    "title": "AtlasOne",
+    "href": "atlasone.html"
+  }
+};
+
+csMount('tempo', () =>
+  ReactDOM.createRoot(document.getElementById('root'))
+    .render(<><CustomCursor defaultStar /><CaseStudy pageKey="tempo" defaults={defaults} /></>));
+</script>
+</body>
+</html>

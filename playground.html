@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Risograph Zines — Pri Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="image-slot.js"></script>
+<script src="cs-sidecar.js?v=5"></script>
+<!-- cross-device state is restored before mount via csMount() below -->
+<script type="text/babel" src="scrapbook-shared.jsx?v=5"></script>
+<script type="text/babel" src="landing.jsx?v=5"></script>
+<script type="text/babel" src="cs-builder.jsx?v=6"></script>
+<script type="text/babel" src="cs-history.jsx?v=5"></script>
+<script type="text/babel" src="case-study-blocks.jsx?v=10"></script>
+<script type="text/babel" src="case-study.jsx?v=7"></script>
+
+<script type="text/babel">
+// Personal-art project page — same editable builder as the case studies.
+// Toggle Edit ↔ Preview (bottom-centre): click any text to rewrite it, drop
+// images into any slot, and use "+ Add section" to add more image / text /
+// gallery / video blocks. Everything persists per pageKey ("art1").
+const defaults = {
+  hero: {
+    eyebrow: 'Personal Art · 01',
+    title: 'Risograph Zines',
+    sub: 'two colours, lots of grain',
+    description: 'A running series of small-run riso zines — printed two-up on whatever paper was around, where I let the colour misregister on purpose.',
+  },
+  meta: [
+    { label: 'Medium',  value: 'Risograph' },
+    { label: 'Run',     value: 'Small batch' },
+    { label: 'Year',    value: 'Ongoing' },
+    { label: 'Colours', value: 'Fluoro 2-up' },
+  ],
+  sections: [
+    {
+      id: 'about', type: 'intro',
+      eyebrow: 'About',
+      heading: 'Printed loud, on purpose.',
+      body: 'Riso is happiest when it is a little wrong — the ink sits on top of the paper, the layers never quite line up, and every pull is slightly different from the last. These zines lean all the way into that. No screens, no undo, just two drums and a stack of paper.',
+      pullquote: 'The misregistration is the point.',
+    },
+    { id: 'full-1', type: 'pinboard', eyebrow: 'The Board', heading: 'Pinned up.', count: 8, caps: [] },
+    {
+      id: 'process', type: 'imageText', side: 'left', rotate: -1.5,
+      eyebrow: 'Process',
+      heading: 'Separate, expose, over-print.',
+      body: 'Each piece is hand-separated into layers, then printed one colour at a time. The fun is in the overlaps — where pink crosses blue you get a third colour the screen could never show you.',
+    },
+    { id: 'gallery-1', type: 'gallery', count: 5 },
+    {
+      id: 'quote-1', type: 'quote',
+      text: 'I keep a stack of the “mistakes” — half of them are better than the plan.',
+      author: 'Pri', role: 'maker',
+    },
+    { id: 'full-2', type: 'fullImage', caption: 'Back cover.', height: 540 },
+  ],
+  next: { label: 'Next', title: 'Emoti Pets', href: 'emoti.html' },
+};
+
+csMount('art1', () =>
+  ReactDOM.createRoot(document.getElementById('root'))
+    .render(<><CustomCursor defaultStar /><CaseStudy pageKey="art1" defaults={defaults} /></>));
+</script>
+</body>
+</html>
