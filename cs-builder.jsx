@@ -433,7 +433,7 @@ function CSVideo({ s, ops }) {
           )}
           {showVideo && showVideo.kind === 'video' && (
             <video key={showVideo.src} src={showVideo.src} controls playsInline
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }} />
           )}
           {!showVideo && (
             <div

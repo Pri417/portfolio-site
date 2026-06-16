@@ -280,7 +280,7 @@ function CSIntro({ s, ops }) {
               margin: '0 0 28px', fontFamily: 'var(--font-headline)',
               fontVariationSettings: '"opsz" 144, "SOFT" 100, "wght" 600',
               fontSize: 48, lineHeight: 1.05, letterSpacing: '-0.015em',
-              color: 'var(--ink)', textWrap: 'balance'
+              color: s.headColor || 'var(--ink)', textWrap: 'balance'
             }} />
             }
             <Editable tag="p" value={s.body} onCommit={(v) => up({ body: v })}

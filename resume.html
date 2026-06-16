@@ -31,8 +31,19 @@
     border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden;
     box-shadow: 0 30px 60px rgba(46,37,34,0.14), 0 6px 14px rgba(46,37,34,0.06);
   }
-  .rz-frame a { display: block; }
+  .rz-frame > a.rz-pdf { display: block; }
   .rz-frame img { width: 100%; height: auto; display: block; }
+  /* Transparent clickable hotspots layered over the printed URLs in the resume
+     image. Percentages track the image as it scales responsively. */
+  .rz-hot {
+    position: absolute; z-index: 2; display: block;
+    border-radius: 4px;
+    background: transparent; transition: background .15s, box-shadow .15s;
+  }
+  .rz-hot:hover {
+    background: rgba(230, 62, 30, 0.14);
+    box-shadow: 0 0 0 2px rgba(230, 62, 30, 0.35);
+  }
 </style>
 </head>
 <body>
@@ -42,13 +53,19 @@
     <div class="rz-wrap">
       <div class="rz-head">
         <h1 class="rz-title">Resume</h1>
-        <div class="rz-sub">Proof that alot can happen in one page</div>
+        <div class="rz-sub">Proof that a lot can happen in one page</div>
       </div>
 
       <div class="rz-frame">
-        <a href="Pri-Jain-Resume.pdf" target="_blank" rel="noopener noreferrer" title="Open the full PDF">
+        <a class="rz-pdf" href="Pri-Jain-Resume.pdf" target="_blank" rel="noopener noreferrer" title="Open the full PDF">
           <img src="resume-page.jpg" alt="Priyanka Jain — Resume" />
         </a>
+        <a class="rz-hot" href="mailto:prij2102@gmail.com" title="Email me"
+           style="top: 7.0%; left: 17.6%; width: 16.2%; height: 2.7%;"></a>
+        <a class="rz-hot" href="https://linkedin.com/in/pri-jain" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+           style="top: 7.0%; left: 48.7%; width: 18.6%; height: 2.7%;"></a>
+        <a class="rz-hot" href="https://pjaindesign.com" target="_blank" rel="noopener noreferrer" title="Portfolio — pjaindesign.com"
+           style="top: 7.0%; left: 68.8%; width: 13.6%; height: 2.7%;"></a>
       </div>
     </div>
   </div>
