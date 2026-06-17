@@ -145,6 +145,7 @@ function CSHero({ hero, update }) {
             <Editable tag="div" value={hero.eyebrow}
             onCommit={(v) => update({ eyebrow: v })}
             placeholder="eyebrow · year"
+            className="cs-hero-eyebrow"
             style={{
               fontFamily: 'var(--font-ui)', fontSize: 12, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
@@ -154,6 +155,7 @@ function CSHero({ hero, update }) {
             <Editable tag="h1" value={hero.title}
             onCommit={(v) => update({ title: v })}
             placeholder="Project title"
+            className="cs-hero-title"
             style={{
               margin: 0, fontFamily: 'var(--font-headline)',
               fontVariationSettings: '"opsz" 144, "SOFT" 100, "wght" 700',
@@ -164,6 +166,7 @@ function CSHero({ hero, update }) {
             <Editable tag="div" value={hero.sub}
             onCommit={(v) => update({ sub: v })}
             placeholder="a short tag line"
+            className="cs-hero-sub"
             style={{
               marginTop: 16, fontFamily: 'var(--font-script)', fontSize: 32,
               color: 'var(--soft-pink)', transform: 'rotate(-1.5deg)',
@@ -175,6 +178,7 @@ function CSHero({ hero, update }) {
           <Editable tag="p" value={hero.description}
           onCommit={(v) => update({ description: v })}
           placeholder="A short description that overlays the hero…"
+          className="cs-hero-desc"
           style={{
             margin: '0 0 12px', fontFamily: 'var(--font-ui)',
             fontSize: 17, lineHeight: 1.65, color: 'rgba(255,255,255,0.94)', maxWidth: 440
@@ -638,7 +642,7 @@ function CSImageText({ s, ops }) {
           }
         </div>);
       })() : s.tiles ? (
-      <div style={s.scatter ? {
+      <div className={`cs-tiles ${s.scatter ? 'cs-tiles-scatter' : ''} ${s.tilesRow ? 'cs-tiles-row' : ''}`} style={s.scatter ? {
         display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
         columnGap: 56, rowGap: 12, paddingTop: 30, paddingBottom: 40
       } : {
@@ -653,7 +657,7 @@ function CSImageText({ s, ops }) {
             ? { margin: 0, width: 'calc(50% - 28px)', marginTop: offset, transform: `rotate(${tilt}deg)` }
             : { margin: 0, transform: `rotate(${tilt}deg)` };
           return (
-          <figure key={i} style={figStyle}>
+          <figure key={i} className="cs-tile" style={figStyle}>
             <div style={{
               position: 'relative', width: '100%',
               aspectRatio: String(t.ar || s.tilesAr || 1.4),
@@ -1815,7 +1819,7 @@ function CSPriorities({ s, ops }) {
   return (
     <section className="reveal" style={{ padding: '64px 0' }}>
       <div className="cs-wrap">
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 40, marginBottom: 0 }}>
+        <div className="cs-pr-objective" style={{ display: 'flex', alignItems: 'flex-start', gap: 40, marginBottom: 0 }}>
           <div style={{ flex: 1, minWidth: 0 }}>
         <Editable tag="div" value={s.eyebrow} onCommit={(v) => up({ eyebrow: v })}
         placeholder="The approach"
@@ -1839,7 +1843,7 @@ function CSPriorities({ s, ops }) {
           fontSize: 'clamp(17px, 1.7vw, 21px)', lineHeight: 1.5, color: 'var(--ink-soft)'
         }} />
           </div>
-          <div style={{ flex: '0 0 auto', width: 220, aspectRatio: '4/3', borderRadius: 14, overflow: 'hidden' }}>
+          <div className="cs-pr-objective-img" style={{ flex: '0 0 auto', width: 220, aspectRatio: '4/3', borderRadius: 14, overflow: 'hidden' }}>
             <image-slot id={imgId(pageKey, s.id, 'hero')} placeholder="objective image"
               fit="cover" style={{ width: '100%', height: '100%', display: 'block' }} />
           </div>

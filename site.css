@@ -870,8 +870,8 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
   .cs-step { grid-template-columns: 64px 1fr !important; gap: 20px !important; }
   .cs-step > div:first-child { font-size: 48px !important; }
   .cs-metrics-grid { grid-template-columns: 1fr !important; }
-  .cs-next { grid-template-columns: 1fr !important; }
-  .cs-next > div:last-child { display: none; }
+  .cs-next { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .cs-next > div:last-child { display: block !important; width: 100% !important; max-width: 340px !important; height: 210px !important; }
   .cs-add-menu { grid-template-columns: 1fr; width: 260px; }
   .cs-outcome-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
 }
@@ -917,10 +917,24 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
   .about-carousel-section { padding: 36px 20px 48px !important; }
 }
 
-/* ── Case study hero bottom text padding ────────────────────────────────── */
+/* ── Case study hero on mobile ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .cs-hero-bottom { padding: 0 24px 36px !important; }
-  .cs-hero-bottom .cs-hero-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  /* svh keeps the bottom text above the phone browser's address bar (100vh
+     hides it behind the bar — that's why the tagline was getting cut off). */
+  .cs-hero { height: 86svh !important; min-height: 500px !important; }
+  .cs-hero-bottom { padding: 0 24px 44px !important; }
+  .cs-hero-bottom .cs-hero-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .cs-hero-eyebrow { font-size: 11px !important; letter-spacing: 0.12em !important; margin-bottom: 14px !important; }
+  .cs-hero-title { font-size: clamp(48px, 15vw, 72px) !important; }
+  .cs-hero-sub { font-size: 24px !important; }
+  .cs-hero-desc { font-size: 15px !important; max-width: none !important; line-height: 1.55 !important; }
+}
+
+/* ── Password gate: stack input above button, both full width ───────────── */
+@media (max-width: 600px) {
+  .cs-gate-form { flex-direction: column !important; gap: 12px !important; max-width: 100% !important; }
+  .cs-gate-field { width: 100% !important; }
+  .cs-gate-btn { width: 100% !important; justify-content: center; }
 }
 
 /* ── Case study section wraps on small screens ──────────────────────────── */
@@ -938,6 +952,20 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
   .cs-flow-chev { transform: rotate(90deg); padding: 8px 0 !important; align-self: center !important; }
   .cs-flow-rail { flex-direction: column !important; }
   .cs-flow-rail > div { flex: 1 1 auto !important; }
+}
+
+/* ── Image tiles + scatter galleries: clean 2-up on phones (no big stagger) ── */
+@media (max-width: 640px) {
+  .cs-tiles-scatter { column-gap: 14px !important; row-gap: 16px !important; padding-top: 6px !important; padding-bottom: 12px !important; }
+  .cs-tiles-scatter .cs-tile { width: calc(50% - 7px) !important; margin-top: 0 !important; transform: none !important; }
+  .cs-tiles-row { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  .cs-tiles-row .cs-tile { transform: none !important; }
+}
+
+/* ── Priorities "objective" header: stack image below text on phones ──────── */
+@media (max-width: 640px) {
+  .cs-pr-objective { flex-direction: column !important; gap: 24px !important; }
+  .cs-pr-objective-img { width: 100% !important; max-width: 340px !important; }
 }
 
 /* ── Edit toolbar smaller on mobile ────────────────────────────────────── */
