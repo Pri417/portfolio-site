@@ -86,11 +86,11 @@ function useReveal() {
 // caption, a tilt, and a pushpin or strip of washi tape. Hover straightens &
 // lifts the frame. Image-slot ids are unchanged so any dropped photos persist.
 const FRAMES = [
-{ id: 'about-carousel-1', cap: 'studio days — cold brew, warm light.', rot: -5, hold: { type: 'pin', color: C.pink } },
-{ id: 'about-carousel-2', cap: 'sketchbook spread, mid-idea.', rot: 3.5, hold: { type: 'tape', color: C.orange } },
-{ id: 'about-carousel-3', cap: 'riso prints drying on the line.', rot: -2.5, hold: { type: 'pin', color: C.lavender } },
-{ id: 'about-carousel-4', cap: 'somewhere green, off the clock.', rot: 4, hold: { type: 'tape', color: C.pink } },
-{ id: 'about-carousel-5', cap: 'the desk, on a good day.', rot: -3.5, hold: { type: 'pin', color: C.orange } }];
+{ id: 'about-carousel-1', cap: 'Grand Prismatic- Yellowstone', rot: -5, hold: { type: 'pin', color: C.pink } },
+{ id: 'about-carousel-2', cap: 'Catching Sunsets', rot: 3.5, hold: { type: 'tape', color: C.orange } },
+{ id: 'about-carousel-3', cap: 'Red Sand Beach- Maui', rot: -2.5, hold: { type: 'pin', color: C.lavender } },
+{ id: 'about-carousel-4', cap: 'Venice-Italy', rot: 4, hold: { type: 'tape', color: C.pink } },
+{ id: 'about-carousel-5', cap: 'Leaning Tower of Pisa- Italy', rot: -3.5, hold: { type: 'pin', color: C.orange } }];
 
 
 // A single pushpin (geometric — dome + needle + highlight).
@@ -273,10 +273,10 @@ function AboutPage() {
       <section className="about-facts-section" style={{ position: 'relative', padding: '80px 100px 40px' }}>
         {(() => {
           const FACTS = [
-          ['based in', 'New York'],
-          ['works on', 'Onboarding · brand · UX'],
-          ['tools', 'Figma · AI · Riso'],
-          ['likes', 'Chai · riso · plants']];
+          ['based in', 'King of Prussia'],
+          ['works on', 'E-Learning· UX· Research'],
+          ['tools', 'Figma · Storyline360 · Adobe Suite'],
+          ['likes', 'Traveling· Working Out · Shopping']];
 
           const liveCount = FACTS.filter((_, k) => !facts.removed.has('f' + k)).length;
           return (
@@ -371,7 +371,7 @@ function AboutPage() {
               fontVariationSettings: '"opsz" 144, "SOFT" 100, "wght" 600',
               fontSize: 32, color: C.softPink, lineHeight: 1.05
             }} />
-            <EditableText storeKey="cta-sub" defaultHtml="Opens as a Google Doc — always the latest version." placeholder="subtext"
+            <EditableText storeKey="cta-sub" defaultHtml="" placeholder="subtext"
             style={{ marginTop: 8, fontFamily: 'var(--font-ui)', fontSize: 15, color: 'rgba(255,255,255,0.8)' }} />
           </div>
           <a href="resume.html"

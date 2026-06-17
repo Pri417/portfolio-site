@@ -84,7 +84,7 @@ function CSHero({ hero, update }) {
     <section ref={pxRef} className="cs-hero" style={{
       position: 'relative', height: '100vh', minHeight: 640,
       width: '100%', overflow: 'hidden',
-      background: hero.bg || 'linear-gradient(157deg, var(--peach) 0%, var(--soft-pink) 32%, var(--pink) 66%, var(--burgundy) 100%)'
+      background: hero.bg || (hero.img ? '#0d0010' : 'linear-gradient(157deg, var(--peach) 0%, var(--soft-pink) 32%, var(--pink) 66%, var(--burgundy) 100%)')
     }}>
       {/* Full-bleed parallax image (covers the gradient once dropped) */}
       <div style={{
