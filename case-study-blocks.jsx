@@ -2279,7 +2279,7 @@ function CSProcessFlow({ s, ops }) {
   const removeStep = () => up({ steps: steps.slice(0, -1) });
 
   const Chevron = ({ accent }) => (
-    <div aria-hidden="true" style={{
+    <div aria-hidden="true" className="cs-flow-chev" style={{
       flex: '0 0 auto', alignSelf: 'center',
       display: 'flex', alignItems: 'center', padding: '0 2px',
       color: accent ? 'var(--orange)' : 'var(--ink-muted)'
@@ -2312,9 +2312,9 @@ function CSProcessFlow({ s, ops }) {
         }
 
         <div className="cs-flow-scroll" style={{ overflowX: 'auto', paddingBottom: 4 }}>
-          <div style={{ minWidth: steps.length > 6 ? steps.length * 128 : 'auto' }}>
+          <div className="cs-flow-inner" style={{ minWidth: steps.length > 6 ? steps.length * 128 : 'auto' }}>
             {/* step chips */}
-            <div style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="cs-flow-row" style={{ display: 'flex', alignItems: 'stretch' }}>
               {steps.map((st, i) => {
                 const atlas = (st.phase || 'sf') === 'atlas';
                 const handoff = i > 0 && atlas && (steps[i - 1].phase || 'sf') !== 'atlas';
@@ -2358,7 +2358,7 @@ function CSProcessFlow({ s, ops }) {
             </div>
 
             {/* platform rail */}
-            <div style={{ display: 'flex', gap: 10, marginTop: 22 }}>
+            <div className="cs-flow-rail" style={{ display: 'flex', gap: 10, marginTop: 22 }}>
               {aCount > 0 &&
                 <div style={{
                   flex: aCount, display: 'flex', alignItems: 'center', gap: 11,

@@ -929,6 +929,17 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
   .cs-outcome-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
 }
 
+/* ── Process-flow diagram: stack vertically on phones instead of side-scroll ── */
+@media (max-width: 640px) {
+  .cs-flow-scroll { overflow-x: visible !important; }
+  .cs-flow-inner { min-width: 0 !important; }
+  .cs-flow-row { flex-direction: column !important; align-items: stretch !important; }
+  .cs-flow-chip { min-width: 0 !important; width: 100% !important; flex: 1 1 auto !important; }
+  .cs-flow-chev { transform: rotate(90deg); padding: 8px 0 !important; align-self: center !important; }
+  .cs-flow-rail { flex-direction: column !important; }
+  .cs-flow-rail > div { flex: 1 1 auto !important; }
+}
+
 /* ── Edit toolbar smaller on mobile ────────────────────────────────────── */
 @media (max-width: 768px) {
   .cs-toolbar { bottom: 12px; padding: 4px; gap: 2px; }
