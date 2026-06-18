@@ -2351,8 +2351,8 @@ function CSProcessFlow({ s, ops }) {
                         style={{
                           fontFamily: 'var(--font-headline)',
                           fontVariationSettings: '"opsz" 40, "SOFT" 0, "wght" 560',
-                          fontSize: 15.5, lineHeight: 1.16, letterSpacing: '-0.01em',
-                          overflowWrap: 'break-word', hyphens: 'auto', textWrap: 'pretty',
+                          fontSize: st.fs || 15.5, lineHeight: 1.16, letterSpacing: '-0.01em',
+                          overflowWrap: 'normal', wordBreak: 'keep-all', textWrap: 'balance',
                           color: atlas ? '#fff' : 'var(--ink)'
                         }} />
                     </div>
