@@ -771,6 +771,34 @@ function CSImageText({ s, ops }) {
     }
     </div>;
 
+  // splitMid: two image halves flanking the text column (img | text | img).
+  if (s.splitMid) {
+    const halfAr = s.splitAr || 0.9;
+    const halfImg = (slot, rot) =>
+      <div className="cs-split-img reveal from-left" style={{
+        position: 'relative', aspectRatio: String(halfAr),
+        transform: `rotate(${rot}deg)`,
+        filter: 'drop-shadow(0 18px 34px rgba(46,37,34,0.16))'
+      }}>
+        <image-slot id={imgId(pageKey, s.id, slot)} placeholder="drop image"
+          src={(slot === 'img' ? s.img : s.img2) || undefined} fit="contain"
+          style={{ width: '100%', height: '100%', display: 'block' }} />
+      </div>;
+    return (
+      <section style={{ padding: '64px 0' }}>
+        <div className="cs-wrap">
+          <div style={{ marginBottom: 44 }}>{textCol}</div>
+          <div className="cs-split-mid" style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            gap: 36, alignItems: 'start', maxWidth: 760, marginLeft: 'auto', marginRight: 'auto'
+          }}>
+            {halfImg('img', -1.5)}
+            {halfImg('img2', 1.5)}
+          </div>
+        </div>
+      </section>);
+  }
+
   return (
     <section style={{ padding: '64px 0' }}>
       <div className="cs-wrap">
@@ -2315,10 +2343,10 @@ function CSProcessFlow({ s, ops }) {
           </div>
         }
 
-        <div className="cs-flow-scroll" style={{ overflowX: 'auto', paddingBottom: 4 }}>
-          <div className="cs-flow-inner" style={{ minWidth: steps.length > 6 ? steps.length * 128 : 'auto' }}>
+        <div className="cs-flow-scroll" style={{ overflowX: 'visible', paddingBottom: 4 }}>
+          <div className="cs-flow-inner" style={{ minWidth: 'auto' }}>
             {/* step chips */}
-            <div className="cs-flow-row" style={{ display: 'flex', alignItems: 'stretch' }}>
+            <div className="cs-flow-row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', gap: 10, rowGap: 14 }}>
               {steps.map((st, i) => {
                 const atlas = (st.phase || 'sf') === 'atlas';
                 const handoff = i > 0 && atlas && (steps[i - 1].phase || 'sf') !== 'atlas';
@@ -2330,7 +2358,7 @@ function CSProcessFlow({ s, ops }) {
                       title={edit ? 'Click to toggle Salesforce / AtlasOne phase' : undefined}
                       className="cs-flow-chip"
                       style={{
-                        flex: '1 1 0', minWidth: 112,
+                        flex: '1 1 120px', minWidth: 120,
                         display: 'flex', flexDirection: 'column', justifyContent: 'center',
                         background: atlas ? 'var(--orange)' : '#fff',
                         border: `1.5px solid ${atlas ? 'var(--orange)' : 'var(--border)'}`,

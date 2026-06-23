@@ -861,6 +861,8 @@ image-slot[id$="__img2"][data-over]::part(frame) { background: transparent; }
   .cs-wrap { padding: 0 24px; }
   .cs-meta-val { white-space: normal !important; overflow-wrap: anywhere; }
   .cs-feature-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .cs-split-mid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .cs-split-mid .cs-split-img { max-width: 340px; margin: 0 auto; }
   .reveal[data-reveal-pending].from-left,
   .reveal[data-reveal-pending].from-right { transform: translateY(36px) !important; }
   .cs-hero { min-height: 560px; }
